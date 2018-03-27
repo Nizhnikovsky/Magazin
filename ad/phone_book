@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phonebook</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   
+</head>
+<body>
+<div class="header">
+        <div class="logo">
+            <a class="title" href="/">Phonebook</a>
+        </div>
+</div>
+<!--content-->
+<div class="content-top">
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active"><a href="#home">Public phonebook</a></li>
+        <li class=""><a href="#profile">Login</a></li>
+    </ul>
+</div>
+<div class="content">
+    <div class="card">
+        <ul>
+            <li class="card-detail"><h3>John Smith </h3></li>
+            <li class="detail"><a href="#collapse1" class="nav-toggle">Show details</a></li><div id="collapse1" style="display: none"><p>Text</p></div>
+        </ul>
+    </div>
+    <div class="card">
+        <ul>
+            <li class="card-detail"><h3>John Smith </h3></li>
+            <li class="detail"><a href="#collapse2" class="nav-toggle">Show details</a></li><div id="collapse2" style="display: none"><div class="show"><p>Text</p></div></div>
+        </ul>
+    </div>
+    <div class="card">
+        <ul>
+            <li class="card-detail"><h3>John Smith </h3></li>
+            <li class="detail"><a>show details</a></li>
+        </ul>
+    </div>
+    <div class="card">
+        <ul>
+            <li class="card-detail"><h3>John Smith </h3></li>
+            <li class="detail"><a>show details</a></li>
+        </ul>
+    </div>
+    <div class="card">
+        <ul>
+            <li class="card-detail"><h3>John Smith </h3></li>
+            <li class="detail"><a>show details</a></li>
+        </ul>
+    </div>
+</div>
+<!--//content-->
+<!--//footer-->
+<div class="footer">
+    <div class="footer-middle">
+        <div class="container">
+        
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        $('#myTab a:first').tab('show');
+        $('#myTab a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        })
+    })
+    $(document).ready(function() {
+        $('.nav-toggle').click(function(){
+            //get collapse content selector
+            var collapse_content_selector = $(this).attr('href');
+
+            //make the collapse content to be shown or hide
+            var toggle_switch = $(this);
+            $(collapse_content_selector).toggle(function(){
+                if($(this).css('display')=='none'){
+                    //change the button label to be 'Show'
+                    toggle_switch.html('Show details');
+                }else{
+                    //change the button label to be 'Hide'
+                    toggle_switch.html('Hide details');
+                }
+            });
+        });
+
+    });
+</script>
+</body>
+</html>
